@@ -21,7 +21,7 @@ exten => s,2,Goto(torture,s,1)     ; attendu trop longtemps ? hop retour au déb
 ; Pour les autres, faites le 7
 
 exten => s,1,Background(torture2)
-extem => 2,1,Goto(torture4,s,1)
+exten => 2,1,Goto(torture4,s,1)
 exten => _X,1,Goto(tortureend,s,1)
 exten => s,2,Goto(torture,s,1) ; attendu trop longtemps ? retour a la racine TROLOLOLO
 
