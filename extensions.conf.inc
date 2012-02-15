@@ -72,3 +72,16 @@ exten => s,2,Hangup()
 ; Un message d'alerte automatique a été envoyé. Merci de rappeler plus tard.
 exten => s,1,Playback(tortureend2)
 exten => s,2,Hangup()
+
+[torturemsg1]
+; Nous sommes navrés de ne pouvoir vous répondre maintenant, mais nous sommes intéressés
+; par votre contact. Merci de laisser un message.
+; <PAUSE> 3 sec
+; Merci d'avoir laissé un message. Si vous êtes satisfaits de votre message, faites le 1.
+; Si vous voulez recommencer, faites le 2
+exten => s,1,Playback(torturemsg1)
+; Vous avez fait le X
+exten => _X,1,Playback(torturemsg1-vousavezfaitle)
+; Si vous êtes satisfait d'avoir fait le X, faites le 1, sinon faites le 2
+exten => _XX,1,Goto(torturemsg1,${EXTEN:1},1)
+exten => _X,2,Goto(torturemsg1,${EXTEN},1)
