@@ -8,3 +8,12 @@ de menu vocal insupportable pour y envoyer les démarcheurs.
 Ceci est une tentative de créer un équivalent du Telemarketer
 Torture disponible sur http://www.voip-info.org/wiki/view/Asterisk+Telemarketer+Torture
 mais en français !
+
+POUR CONTRIBUER: 
+
+Si vous vous sentez poète, n'hésitez pas a écrire des bouts de script amusants, chaque
+section entre crochets représente un menu, les lignes commençant par des point-virgules
+sont des commentaires, écrivez-y ce que bon vous semblera.
+
+Si vous vous sentez lyrique, donnez votre voix pour un menu non-enregistré. Enregistrez 
+un fichier .wav, échantillonné à 8khz en mono (IMPORTANT).
