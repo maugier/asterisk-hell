@@ -22,6 +22,8 @@ exten => s,2,Goto(torture,s,1)     ; attendu trop longtemps ? hop retour au déb
 
 exten => s,1,Background(torture2)
 exten => 2,1,Goto(torture4,s,1)
+exten => 3,1,Goto(torturesondage,s,1)
+exten => 6,1,Goto(torturecom,s,1)
 exten => _X,1,Goto(tortureend,s,1)
 exten => s,2,Goto(torture,s,1) ; attendu trop longtemps ? retour a la racine TROLOLOLO
 
@@ -61,6 +63,35 @@ exten => s,1,Background(torture5)
 exten => _X,1,Goto(tortureend,s,1)
 exten => s,2,Goto(torture,s,1)
 
+[torturesondage]
+; Merci d'avoir appelé notre serveur vocal. Pour des raisons
+; d'assurance qualité, veuillez répondre a ces quelques questions.
+; Comment évaluez-vous la qualité des voix de ce menu vocal ?
+; Si vous trouvez les voix excellentes, faites le 1
+; Si vous trouvez les voix bonnes, faites le 2
+; Si vous trouvez les voix acceptables, faites le 3
+; Si vous trouvez les voix médiocres, faites le 4
+; Si vous trouvez les voix mauvaises, faites le 5;
+exten => s,1,Background(torturesondage)
+exten => _X,1,Goto(torturesondage2,s,1)
+exten => s,2,Goto(torture,s,1)
+
+[torturesondage2]
+; Merci. Comment évaluez-vous la qualité des textes de ce serveur vocal ?
+; (bis repetita)
+
+[torturecom]
+; Veuillez indiquer le secteur d'activité de votre entreprise
+; Pour le secteur agricole et alimentaire, faites le 1
+; Pour le secteur siderurgique et minier, faites le 2
+; Pour le secteur textile, faites le 3
+; Pour le secteur aeronautique, faites le 4
+; Pour le secteur pétrolier, faites le 5
+; Pour le secteur électronique, faites le 6
+; Pour le secteur bancaire, faites le 7
+; Pour le secteur de la grande distribution, faites le 8
+; Pour les autres secteurs, faites le 9
+
 [tortureend]
 ; Nous sommes navrés de ne pouvoir accéder a votre requête pour l'instant.
 ; Merci de rappeler plus tard.
@@ -72,3 +103,5 @@ exten => s,2,Hangup()
 ; Un message d'alerte automatique a été envoyé. Merci de rappeler plus tard.
 exten => s,1,Playback(tortureend2)
 exten => s,2,Hangup()
+
+
